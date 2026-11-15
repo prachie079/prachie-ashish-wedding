@@ -1,8 +1,2 @@
-const SHEET_ID = '1QQvCoItDRYdl5v1V8mPWFvi9PPnUeRztXzJCYMoFgKw';
-function doPost(e) {
-  const data = JSON.parse(e.postData.contents || '{}');
-  const sheet = SpreadsheetApp.openById(SHEET_ID).getSheets()[0];
-  if (sheet.getLastRow() === 0) sheet.appendRow(['Timestamp','Name','Mobile','Attending','Guest Count','Events','Dietary Preference','Message']);
-  sheet.appendRow([new Date(),data.name||'',data.phone||'',data.attending||'',data.guests||'',(data.events||[]).join(', '),data.diet||'',data.message||'']);
-  return ContentService.createTextOutput(JSON.stringify({ok:true})).setMimeType(ContentService.MimeType.JSON);
-}
+const SHEET_ID='1QQvCoItDRYdl5v1V8mPWFvi9PPnUeRztXzJCYMoFgKw';
+function doPost(e){const d=JSON.parse(e.postData.contents||'{}');const s=SpreadsheetApp.openById(SHEET_ID).getSheets()[0];if(s.getLastRow()===0)s.appendRow(['Timestamp','Name','Mobile','Attending','Guest Count','Events','Dietary Preference','Message']);s.appendRow([new Date(),d.name||'',d.phone||'',d.attending||'',d.guests||'',(d.events||[]).join(', '),d.diet||'',d.message||'']);return ContentService.createTextOutput(JSON.stringify({ok:true})).setMimeType(ContentService.MimeType.JSON);}
